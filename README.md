@@ -1,1 +1,50 @@
 # PROGRAM22
+.employees = {
+  "Ravi": 45000,
+  "Anita": 72000,
+  "Karthik": 52000,
+  "Priya": 38000,
+  "Suresh": 61000
+}
+print("Original Employee Salaries:")
+print(employees)
+updated_salaries = dict(
+    map(lambda item:(item[0],int(item[1]*1.10)),employees.items())
+    )
+print("\nSalaries after 10% hike:")
+print(updated_salaries)
+eligible_employees=dict(
+    filter(lambda item:item[1]>=50000,updated_salaries.items())
+    )
+print("\nEmployees with salary>=50000:")
+print(eligible_employees)
+total_salary = reduce(lambda x, y: x + y, updated_salaries.values())
+print("\nTotal Salary Expense:")
+print(total_salary)
+def withdraw(balance,amount):
+    if amount<=balance:
+        return balance
+    else:
+        print("Insuffiecient Balance")
+        return balance
+def display(acc_no,name,balance):
+    print("Account No :",acc_no)
+    print("Name :",name)
+    print("Balance:",balance)
+    import bank_module
+    acc_no = 1001
+    name = "suresh"
+    balance = 25000
+    balance = bank_module.deposit(balance,5000)
+    balance = bank_withdraw(balance,3000)
+    bank_module.display(acc_no,name,balance)
+  
+  Output 
+  Original Employee Salaries:
+{'Ravi': 45000, 'Anita': 72000, 'Karthik': 52000, 'Priya': 38000, 'Suresh': 61000}
+
+Salaries after 10% hike:
+{'Ravi': 49500, 'Anita': 79200, 'Karthik': 57200, 'Priya': 41800, 'Suresh': 67100}
+
+Employees with salary>=50000:
+{'Anita': 79200, 'Karthik': 57200, 'Suresh': 67100}
